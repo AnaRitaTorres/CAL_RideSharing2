@@ -521,9 +521,12 @@ void showRoutes(vector<vector<Vertex*> > &v)
 		{
 			for(unsigned int k = 0; k < v.at(i).at(j)->getEdgesAdj().size(); k++)
 			{
+				Road *a;
 				if(v.at(i).at(j+1)->getNode() == v.at(i).at(j)->getEdgesAdj().at(k)->getDest()->getNode())
 				{
+					a = v.at(i).at(j)->getEdgesAdj().at(k)->getRoad();
 					routeByRoads.push_back(v.at(i).at(j)->getEdgesAdj().at(k)->getRoad());
+
 				}
 			}
 		}
