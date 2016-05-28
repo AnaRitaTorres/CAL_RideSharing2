@@ -31,8 +31,12 @@ void drawGraph(GraphViewer * gv,Graph &g,vector<vector<Vertex*> > &todasAsRotas)
 vector <vector<long long> > groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRotas);
 int findLonLong(vector<long long> v, long long a);
 bool findVertex1(Graph &g,vector <Vertex *> path,Vertex* v);
-void showRoutes(vector<vector<Vertex*> > &v);
+void writeRoutes(vector<vector<Vertex*> > &v, vector<vector<Road*> > & v1);
 void writePassengers(vector<Vehicle*> v);
+void pre_kmp(string pattern, vector<int> & prefix);
+int kmp(string text, string pattern);
+int numStringMatching(string filename,string toSearch, vector<int> &v);
+void showRoutes(vector <int> ids, vector<vector<Road*> > & v2);
 struct vertex_lower_than
 {
 	bool operator()(Vertex * a, Vertex * b) const

@@ -439,7 +439,7 @@ void drawGraph(GraphViewer * gv, Graph &g,vector <vector<Vertex*> >&todasAsRotas
  * @param todasAsRotas the vector of Vertexs with all the paths
  */
 vector<vector<long long> >groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRotas)
-{
+										{
 	vector <vector <long long> > todasAsRotasIDs;
 	for (unsigned int i=0; i < g.getVehicles().size();i++)
 	{
@@ -519,14 +519,13 @@ vector<vector<long long> >groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRo
 
 
 	return todasAsRotasIDs;
-}
+										}
 
-void showRoutes(vector<vector<Vertex*> > &v)
+void writeRoutes(vector<vector<Vertex*> > &v, vector<vector<Road*> > &v1)
 {
 	string a = "asdfg";
 	ofstream output;
 	output.open("routes.txt");
-	vector<vector<Road*> > routesByRoads;
 	for(unsigned int i = 0; i < v.size(); i++)
 	{
 		vector<Road*> routeByRoads;
@@ -549,13 +548,13 @@ void showRoutes(vector<vector<Vertex*> > &v)
 
 			}
 		}
-		routesByRoads.push_back(routeByRoads);
+		v1.push_back(routeByRoads);
 	}
-	for(unsigned int l = 0; l < routesByRoads.size(); l++)
+	for(unsigned int l = 0; l < v1.size(); l++)
 	{
-		for(unsigned int o = 0; o < routesByRoads.at(l).size();o++)
+		for(unsigned int o = 0; o < v1.at(l).size();o++)
 		{
-			output << l << ";" << routesByRoads.at(l).at(o)->getName()<< endl;
+			output << l << ";" << v1.at(l).at(o)->getName()<< endl;
 		}
 	}
 	output.close();
@@ -574,6 +573,108 @@ void writePassengers(vector<Vehicle*> v)
 	}
 	output.close();
 }
+
+void pre_kmp(string pattern, vector<int> & prefix)
+{
+	int m=pattern.length();
+	prefix[0]=-1;
+	int k=-1;
+	for (int q=1; q<m; q++) {
+		while (k>-1 && pattern[k+1]!=pattern[q])
+			k = prefix[k];
+		if (pattern[k+1]==pattern[q]) k=k+1;
+		prefix[q]=k;
+	}
+}
+
+int kmp(string text, string pattern)
+{
+	int num=0;
+	int m=pattern.length();
+	vector<int> prefix(m);
+	pre_kmp(pattern, prefix);
+
+	int n=text.length();
+
+	int q=-1;
+	for (int i=0; i<n; i++) {
+		while (q>-1 && pattern[q+1]!=text[i])
+			q=prefix[q];
+		if (pattern[q+1]==text[i])
+			q++;
+		if (q==m-1) {
+			num++;
+			q=prefix[q];
+		}
+	}
+	return num;
+}
+
+int numStringMatchingRuas(string filename,string toSearch, vector<int> &v)
+{
+	ifstream fich(filename.c_str());
+	if (!fich)
+	{ cout << "Erro a abrir ficheiro de leitura\n"; return 0; }
+
+	string line1;
+	string idRota;
+	int idR;
+	int num=0;
+
+	while (!fich.eof()) {
+		getline(fich, idRota, ';');
+		idR = atoi(idRota.c_str());
+		getline(fich, line1);
+		int tmp = kmp(line1,toSearch);
+		num+=tmp;
+		if(tmp>0)
+			v.push_back(idR);
+
+	}
+	fich.close();
+	return num;
+}
+
+int numStringMatchingUsers(string filename,string toSearch, vector<int> &v)
+{
+	ifstream fich(filename.c_str());
+	if (!fich)
+	{ cout << "Erro a abrir ficheiro de leitura\n"; return 0; }
+
+	string line1;
+	string idVehicle;
+	int idV;
+	int num=0;
+
+	while (!fich.eof()) {
+		getline(fich, idVehicle, ';');
+		idV = atoi(idVehicle.c_str());
+		getline(fich, line1);
+		int tmp = kmp(line1,toSearch);
+		num+=tmp;
+		if(tmp>0)
+			v.push_back(idV);
+
+	}
+	fich.close();
+	return num;
+}
+
+
+
+void showRoutes(vector <int> ids, vector<vector<Road*> > & v2)
+{
+
+	for(unsigned int i = 0; i < ids.size(); i++)
+	{
+		int x = ids.at(i);
+		cout << "Rota " << x <<":" << endl;
+		for(unsigned int j = 0; j < v2.at(x).size(); j++)
+			cout << v2.at(x).at(j)->getName() << endl;
+	}
+}
+
+
 
 
 
