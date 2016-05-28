@@ -14,7 +14,7 @@ void pesqExataRuas()
 {
 	string rua;
 	int numRuas;
-	cout << "Estão disponíveis " << g.getVehicles().size() << " veículos." << endl;
+	cout << "Estão disponíveis " << namesByVehicles.size() << " veículos." << endl;
 	cout << "Introduza a rua a pesquisar:" << endl;
 	cin.clear();
 	cin.ignore();
@@ -35,7 +35,7 @@ void pesqExataUsers()
 {
 	string user;
 	int numVehicles;
-	cout << "Estão disponíveis " << g.getVehicles().size() << " veículos." << endl;
+	cout << "Estão disponíveis " << namesByVehicles.size() << " veículos." << endl;
 	cout << "Introduza o nome do passageiro a pesquisar:" << endl;
 	cin.clear();
 	cin.ignore();
