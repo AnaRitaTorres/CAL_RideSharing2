@@ -5,6 +5,7 @@ vector<Road*> estradas;
 GraphViewer *gv = new GraphViewer(600, 600,false);
 vector<vector<Vertex*> > todasAsRotas;
 vector<vector<Road*> > routesByRoads;
+vector <Vehicle*> namesByVehicles;
 vector<int> idRotas;
 vector<int> idVehicle;
 
@@ -48,6 +49,7 @@ void pesqExataUsers()
 	{
 		cout << "Há " << idVehicle.size() <<" com esse passageiro:" << endl;
 		//showRoutes(idRotas,routesByRoads); FALTA FAZER SHOWUSERS
+		showUsers(idVehicle,namesByVehicles);
 	}
 }
 
@@ -102,7 +104,7 @@ void searchMenuRuas()
 		switch(opcao)
 		{
 		case 1:
-			pesqExata();
+			pesqExataRuas();
 			break;
 		case 2:
 			cout<< "boas";
