@@ -524,8 +524,9 @@ void showRoutes(vector<vector<Vertex*> > &v)
 				Road *a;
 				if(v.at(i).at(j+1)->getNode() == v.at(i).at(j)->getEdgesAdj().at(k)->getDest()->getNode())
 				{
+					if((a->getName() != v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName()) && (v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName() != ""))
+						routeByRoads.push_back(v.at(i).at(j)->getEdgesAdj().at(k)->getRoad());
 					a = v.at(i).at(j)->getEdgesAdj().at(k)->getRoad();
-					routeByRoads.push_back(v.at(i).at(j)->getEdgesAdj().at(k)->getRoad());
 
 				}
 			}
