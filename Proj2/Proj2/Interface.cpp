@@ -533,14 +533,15 @@ void showRoutes(vector<vector<Vertex*> > &v)
 				Road *a = new Road("asdfghj", true);
 				if(v.at(i).at(j+1)->getNode() == v.at(i).at(j)->getEdgesAdj().at(k)->getDest()->getNode())
 				{
-					if((a->getName() != v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName()) && (v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName() != " "))
+					if((a->getName() != v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName()) && (!v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName().empty()))
+					{
 						routeByRoads.push_back(v.at(i).at(j)->getEdgesAdj().at(k)->getRoad());
+					}
 					a = v.at(i).at(j)->getEdgesAdj().at(k)->getRoad();
 
 				}
 			}
 		}
-		//set(routeByRoads.begin(),routeByRoads.end());
 		routesByRoads.push_back(routeByRoads);
 	}
 	for(unsigned int l = 0; l < routesByRoads.size(); l++)
