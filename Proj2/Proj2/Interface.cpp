@@ -26,13 +26,16 @@ void readCoords(Graph &g)
 	ifstream f;
 	string filename;
 
-	do
+	/*do
 	{
 		cout << "Insira o ficheiro das coordenadas dos Vertices:";
 		cin >> filename;
 		f.open(filename.c_str());
 
-	}while(f.fail());
+	}while(f.fail());*/
+
+	f.open("coordsVertex.txt");
+
 
 	while(!f.eof())
 	{
@@ -65,14 +68,15 @@ void readRoadName(vector<Road *> &estradas)
 	ifstream f;
 	string filename;
 
-	do
+	/*do
 	{
 		cout << "Insira o ficheiro com informações sobre as Ruas:";
 		cin >> filename;
-		f.open(filename.c_str());
+		//f.open(filename.c_str());
 
-	}while(f.fail());
+	}while(f.fail());*/
 
+	f.open("roadName.txt");
 	while(!f.eof())
 	{
 		string a, name, c;
@@ -106,14 +110,15 @@ void readRoadConnect(Graph &g1, vector<Road *> &estradas)
 	ifstream f;
 	string filename;
 
-	do
+	/*do
 	{
 		cout << "Insira o ficheiro com as ligacoes das Arestas:";
 		cin >> filename;
 		f.open(filename.c_str());
 
-	}while(f.fail());
+	}while(f.fail());*/
 
+	f.open("edgeConnections.txt");
 	while(!f.eof())
 	{
 		string a, b, c;
@@ -180,13 +185,15 @@ void readUsers(Graph &g1)
 	ifstream f;
 	string filename;
 
-	do
+	/*do
 	{
 		cout << "Insira o ficheiro com as informacoes dos Utilizadores:";
 		cin >> filename;
 		f.open(filename.c_str());
 
-	}while(f.fail());
+	}while(f.fail());*/
+
+	f.open("users.txt");
 
 	while(!f.eof())
 	{
@@ -223,13 +230,15 @@ void readVehicles(Graph &g1)
 	ifstream f;
 	string filename;
 
-	do
+	/*do
 	{
 		cout << "Insira o ficheiro com as informacoes dos Veiculos:";
 		cin >> filename;
 		f.open(filename.c_str());
 
-	}while(f.fail());
+	}while(f.fail());*/
+
+	f.open("vehicles.txt");
 
 	while(!f.eof())
 	{
@@ -521,10 +530,10 @@ void showRoutes(vector<vector<Vertex*> > &v)
 		{
 			for(unsigned int k = 0; k < v.at(i).at(j)->getEdgesAdj().size(); k++)
 			{
-				Road *a;
+				Road *a = new Road("asdfghj", true);
 				if(v.at(i).at(j+1)->getNode() == v.at(i).at(j)->getEdgesAdj().at(k)->getDest()->getNode())
 				{
-					if((a->getName() != v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName()) && (v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName() != ""))
+					if((a->getName() != v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName()) && (v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName() != " "))
 						routeByRoads.push_back(v.at(i).at(j)->getEdgesAdj().at(k)->getRoad());
 					a = v.at(i).at(j)->getEdgesAdj().at(k)->getRoad();
 
