@@ -15,6 +15,7 @@ using namespace std;
 class User
 {
 	int user_id;
+	string name;
 	string address;
 	string dest;
 	int departureh;
@@ -23,7 +24,7 @@ class User
 	int arrivalm;
 	bool hasVehicle;
 public:
-	User(int id, string adr, string d, int deph, int depm, int arrh, int arrm, bool v);
+	User(int id, string nome, string adr, string d, int deph, int depm, int arrh, int arrm, bool v);
 	int getUserId();
 	string getAddress();
 	string getDest();

@@ -9,6 +9,7 @@ using namespace std;
  * Constructor of User.
  *
  * @param id the User Id
+ * @param nome the User name
  * @param adr the User address
  * @param d the User destination
  * @param deph the User departure hour
@@ -18,8 +19,8 @@ using namespace std;
  * @param v wether the User has a vehicle or not
  */
 
-User::User(int id, string adr, string d, int deph, int depm, int arrh, int arrm, bool v):
-				user_id(id), address(adr), dest(d), arrivalh(arrh), arrivalm(arrm), departureh(deph), departurem(depm), hasVehicle(v){}
+User::User(int id, string nome, string adr, string d, int deph, int depm, int arrh, int arrm, bool v):
+				user_id(id), name(nome), address(adr), dest(d), arrivalh(arrh), arrivalm(arrm), departureh(deph), departurem(depm), hasVehicle(v){}
 
 /**
  * Gets the User ID.

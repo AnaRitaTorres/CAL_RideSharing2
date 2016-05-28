@@ -197,8 +197,9 @@ void readUsers(Graph &g1)
 
 	while(!f.eof())
 	{
-		string id, adress, dest, dh, dm, ah, am, car;
+		string id, n, adress, dest, dh, dm, ah, am, car;
 		getline(f, id, ';');
+		getline(f, n, ';');
 		getline(f, adress, ';');
 		getline(f, dest, ';');
 		getline(f, dh, ';');
@@ -215,7 +216,7 @@ void readUsers(Graph &g1)
 		bool hasCar = hc;
 		if(uid == 0)
 			break;
-		User *u = new User(uid, adress, dest, deph, depm, arrh, arrm, hasCar);
+		User *u = new User(uid, n, adress, dest, deph, depm, arrh, arrm, hasCar);
 		g1.addUser(u);
 	}
 }

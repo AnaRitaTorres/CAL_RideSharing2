@@ -1,30 +1,30 @@
-1234;Rua do Cruzeiro;Rua 5 de Outubro;10;0;10;8;1
-2345;Rua Padre Eduardo Alves Espinheira;Rua Linda Aurora;8;30;8;36;1
-3456;Rua da Bela;Rua 1º de Janeiro;10;15;10;21;1
-4567;Rua Central de Rebordãos;Rua Doutor Faria Sampaio;9;15;9;25;1
-5678;Rua José Joaquim Ribeiro Teles;Rotunda do Bombeiro;9;20;9;30;0 
-3333;Rua Doutor Alberto Lemos;Rua São Silvestre;9;25;9;37;1
-4050;Rua Padre Avelino da Assunção;Praceta Rainha Mariana Victória;15;10;15;28;1
-7791;Rua Padre Avelino da Assunção;Travessa 5 de Outubro;15;30;15;45;0
-3245;Rua Doutor Faria Sampaio;Rua Vila Beatriz;20;10;20;15;1
-4000;Rua de Macau;Rua Doutor Faria Sampaio;20;05;10;21;0
-5675;Rua Sacadura Cabral;Rua Vila Beatriz;8;25;8;35;0
-2020;Rua de Macau;Travessa 5 de Outubro;14;15;14;25;0
-1161;Rua de Goa;Rua Natália Correia;9;15;9;30;0
-7123;Rua Padre Avelino da Assunção;Rua Comércio do Porto;12;10;12;25;0
-4633;Rua Filipa de Vilhena;Rua Comércio do Porto;18;00;18;10;0
-0012;Rua Pedro �?lvares Cabral;Rua Filipa de Vilhena;8;30;8;45;1
-3987;Rua dos Combatentes;Rua Doutor Luís Ramos;9;15;9;30;0
-4882;Rua da Claridade;Rua Doutor Faria Sampaio;8;00;8;15;0
-2142;Rua de Macau;Travessa 5 de Outubro;10;15;10;35;0
-7541;Rua de Macau;Rua das Piscinas;8;0;8;10;0
-8241;Rua 9 de Agosto;Rua das Piscinas;9;15;9;25;0
-7778;Rua de Goa;Rua Doutor Luís Ramos;10;0;10;10;0
-7855;Rua Monsenhor Miguel Sampaio;Rua São Silvestre;11;30;11;45;0
-4542;Rua de Goa;Rua Armindo e Silva;7;45;7;55;0
-1478;Rua de António Nobre;Rotunda do Bombeiro;8;55;9;05;0
-6825;Rua Armindo e Silva;Alto do Reguengo;9;15;9;25;0
-7852;Rua da Bela;Rua Monsenhor Miguel Sampaio;14;30;14;45;0
-7547;Rua dos Combatentes;Rua São Silvestre;16;15;16;25;1
-8521;Rua de Goa;Rua das Saibreiras;16;15;16;35;0
-5630;Rua Armindo e Silva;Alto do Reguengo;7;30;7;40;0
+1234;Maria Costa;Rua do Cruzeiro;Rua 5 de Outubro;10;0;10;8;1
+2345;Joao Alves;Rua Padre Eduardo Alves Espinheira;Rua Linda Aurora;8;30;8;36;1
+3456;Joaquim Ribeiro;Rua da Bela;Rua 1º de Janeiro;10;15;10;21;1
+4567;Sofia Barros;Rua Central de Rebordãos;Rua Doutor Faria Sampaio;9;15;9;25;1
+5678;Beatriz Sousa;Rua José Joaquim Ribeiro Teles;Rotunda do Bombeiro;9;20;9;30;0 
+3333;Tiago Fernandes;Rua Doutor Alberto Lemos;Rua São Silvestre;9;25;9;37;1
+4050;Francisco Andrade;Rua Padre Avelino da Assunção;Praceta Rainha Mariana Victória;15;10;15;28;1
+7791;Guilherme Soares;Rua Padre Avelino da Assunção;Travessa 5 de Outubro;15;30;15;45;0
+3245;Miguel Pinto;Rua Doutor Faria Sampaio;Rua Vila Beatriz;20;10;20;15;1
+4000;Rita Mota;Rua de Macau;Rua Doutor Faria Sampaio;20;05;10;21;0
+5675;Cristina Ferreira;Rua Sacadura Cabral;Rua Vila Beatriz;8;25;8;35;0
+2020;Bruna Miguel;Rua de Macau;Travessa 5 de Outubro;14;15;14;25;0
+1161;Paula Carneiro;Rua de Goa;Rua Natália Correia;9;15;9;30;0
+7123;Carla Moreira;Rua Padre Avelino da Assunção;Rua Comércio do Porto;12;10;12;25;0
+4633;Jose Vitorino;Rua Filipa de Vilhena;Rua Comércio do Porto;18;00;18;10;0
+0012;Rebeca Teixeira;Rua Pedro �?lvares Cabral;Rua Filipa de Vilhena;8;30;8;45;1
+3987;Pedro Martins;Rua dos Combatentes;Rua Doutor Luís Ramos;9;15;9;30;0
+4882;Helder Antunes;Rua da Claridade;Rua Doutor Faria Sampaio;8;00;8;15;0
+2142;Mariana Cruz;Rua de Macau;Travessa 5 de Outubro;10;15;10;35;0
+7541;Gertrudes Almeida;Rua de Macau;Rua das Piscinas;8;0;8;10;0
+8241;Constanca Braganca;Rua 9 de Agosto;Rua das Piscinas;9;15;9;25;0
+7778;Catia Loureiro;Rua de Goa;Rua Doutor Luís Ramos;10;0;10;10;0
+7855;Barbara Priscila;Rua Monsenhor Miguel Sampaio;Rua São Silvestre;11;30;11;45;0
+4542;Rafaela Vilar;Rua de Goa;Rua Armindo e Silva;7;45;7;55;0
+1478;Marta Torgal;Rua de António Nobre;Rotunda do Bombeiro;8;55;9;05;0
+6825;Carlos Alberto;Rua Armindo e Silva;Alto do Reguengo;9;15;9;25;0
+7852;Arnaldo Rocha;Rua da Bela;Rua Monsenhor Miguel Sampaio;14;30;14;45;0
+7547;Raquel Bateira;Rua dos Combatentes;Rua São Silvestre;16;15;16;25;1
+8521;Ines Carvalho;Rua de Goa;Rua das Saibreiras;16;15;16;35;0
+5630;Nuno Lopes;Rua Armindo e Silva;Alto do Reguengo;7;30;7;40;0
