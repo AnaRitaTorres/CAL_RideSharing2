@@ -553,10 +553,8 @@ void showRoutes(vector<vector<Vertex*> > &v)
 	}
 	for(unsigned int l = 0; l < routesByRoads.size(); l++)
 	{
-		cout << "Rota " << l << ":" << endl;
 		for(unsigned int o = 0; o < routesByRoads.at(l).size();o++)
 		{
-			cout << routesByRoads.at(l).at(o)->getName()<< endl;
 			output << l << ";" << routesByRoads.at(l).at(o)->getName()<< endl;
 		}
 	}
@@ -576,4 +574,6 @@ void writePassengers(vector<Vehicle*> v)
 	}
 	output.close();
 }
+
+
 

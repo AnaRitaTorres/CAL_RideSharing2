@@ -12,13 +12,15 @@
 #include <windows.h>
 #include <math.h>
 #include <algorithm>
-#include <set>
 #include "Graph.h"
 #include "Auxiliar.h"
 #include "GraphViewer.h"
 
 #ifndef INTERFACE_H_
 #define INTERFACE_H_
+
+
+#define TAB    "   "
 
 void readCoords(Graph &g);
 void readRoadName(vector <Road *> &estradas);
