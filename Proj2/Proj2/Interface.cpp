@@ -26,16 +26,7 @@ void readCoords(Graph &g)
 	ifstream f;
 	string filename;
 
-	/*do
-	{
-		cout << "Insira o ficheiro das coordenadas dos Vertices:";
-		cin >> filename;
-		f.open(filename.c_str());
-
-	}while(f.fail());*/
-
 	f.open("coordsVertex.txt");
-
 
 	while(!f.eof())
 	{
@@ -67,14 +58,6 @@ void readRoadName(vector<Road *> &estradas)
 {
 	ifstream f;
 	string filename;
-
-	/*do
-	{
-		cout << "Insira o ficheiro com informações sobre as Ruas:";
-		cin >> filename;
-		//f.open(filename.c_str());
-
-	}while(f.fail());*/
 
 	f.open("roadName.txt");
 	while(!f.eof())
@@ -110,14 +93,6 @@ void readRoadConnect(Graph &g1, vector<Road *> &estradas)
 	ifstream f;
 	string filename;
 
-	/*do
-	{
-		cout << "Insira o ficheiro com as ligacoes das Arestas:";
-		cin >> filename;
-		f.open(filename.c_str());
-
-	}while(f.fail());*/
-
 	f.open("edgeConnections.txt");
 	while(!f.eof())
 	{
@@ -132,12 +107,12 @@ void readRoadConnect(Graph &g1, vector<Road *> &estradas)
 		if(road == 0)
 			break;
 
-
-		for (unsigned int j=0; j < estradas.size(); j++)
+		vector<Road *>  e = estradas;
+		for (unsigned int j=0; j < e.size(); j++)
 		{
-			if (estradas.at(j)->getRoadId()== road)
+			if (e.at(j)->getRoadId()== road)
 			{
-				saveRoad= estradas.at(j);
+				saveRoad= e.at(j);
 			}
 		}
 
@@ -169,10 +144,10 @@ void readRoadConnect(Graph &g1, vector<Road *> &estradas)
 		}
 
 	}
-
-	for(unsigned int k=0; k < estradas.size(); k++)
+	vector<Road *> a = estradas;
+	for(unsigned int k=0; k < a.size(); k++)
 	{
-		g1.addRoad(estradas.at(k));
+		g1.addRoad(a.at(k));
 	}
 }
 /**
@@ -184,14 +159,6 @@ void readUsers(Graph &g1)
 {
 	ifstream f;
 	string filename;
-
-	/*do
-	{
-		cout << "Insira o ficheiro com as informacoes dos Utilizadores:";
-		cin >> filename;
-		f.open(filename.c_str());
-
-	}while(f.fail());*/
 
 	f.open("users.txt");
 
@@ -230,14 +197,6 @@ void readVehicles(Graph &g1)
 {
 	ifstream f;
 	string filename;
-
-	/*do
-	{
-		cout << "Insira o ficheiro com as informacoes dos Veiculos:";
-		cin >> filename;
-		f.open(filename.c_str());
-
-	}while(f.fail());*/
 
 	f.open("vehicles.txt");
 
@@ -319,7 +278,7 @@ void drawGraph(GraphViewer * gv, Graph &g,vector <vector<Vertex*> >&todasAsRotas
 	double latitude_min=1000000;
 
 	vector < Vertex*> a = g.getVertexs();
-	for(unsigned int x=0;x<g.getVertexs().size();x++)
+	for(unsigned int x=0;x<a.size();x++)
 	{
 		if(a.at(x)->getLonG()>longitude_max)
 			longitude_max=a.at(x)->getLonG();
@@ -441,10 +400,11 @@ void drawGraph(GraphViewer * gv, Graph &g,vector <vector<Vertex*> >&todasAsRotas
 vector<vector<long long> >groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRotas)
 												{
 	vector <vector <long long> > todasAsRotasIDs;
-	for (unsigned int i=0; i < g.getVehicles().size();i++)
+	vector < Vehicle *> ve = g.getVehicles();
+	for (unsigned int i=0; i < ve.size();i++)
 	{
-		Vertex * oriDriver = g.getVertexR(g.getRoad(g.getAdressOri(g.getUser(g.getVehicles().at(i)->getDriver()))));
-		Vertex * destDriver = g.getVertexR(g.getRoad(g.getAdressDest(g.getUser(g.getVehicles().at(i)->getDriver()))));
+		Vertex * oriDriver = g.getVertexR(g.getRoad(g.getAdressOri(g.getUser(ve.at(i)->getDriver()))));
+		Vertex * destDriver = g.getVertexR(g.getRoad(g.getAdressDest(g.getUser(ve.at(i)->getDriver()))));
 		vector <long long> l =g.bfs(oriDriver);
 
 		if (g.searchUser(l,destDriver))
@@ -452,30 +412,32 @@ vector<vector<long long> >groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRo
 			vector <Vertex *> percurso;
 			vector <Vertex *> percursodest;
 			percurso.push_back(oriDriver);
-			if(g.getVehicles().at(i)->getSeats() > 0)
+			vector<User *> s = g.saveWithoutVehicle();
+
+			if(ve.at(i)->getSeats() > 0)
 			{
-				for (unsigned int j=0; j < g.saveWithoutVehicle().size(); j++)
+				for (unsigned int j=0; j < s.size(); j++)
 				{
-					int dHourDriv = g.getDep(g.getUser(g.getVehicles().at(i)->getDriver()));
-					int dHourPass = g.getDep(g.saveWithoutVehicle().at(j));
+					int dHourDriv = g.getDep(g.getUser(ve.at(i)->getDriver()));
+					int dHourPass = g.getDep(s.at(j));
 					int deltaD = deltaTime (dHourDriv,dHourPass);
 
-					int aHourDriv = g.getArr(g.getUser(g.getVehicles().at(i)->getDriver()));
-					int aHourPass = g.getArr(g.saveWithoutVehicle().at(j));
+					int aHourDriv = g.getArr(g.getUser(ve.at(i)->getDriver()));
+					int aHourPass = g.getArr(s.at(j));
 					int deltaA = deltaTime (aHourPass,aHourDriv);
 
-					Vertex * oriPass = g.getVertexR(g.getRoad(g.getAdressOri(g.saveWithoutVehicle().at(j))));
-					Vertex * destPass = g.getVertexR(g.getRoad(g.getAdressDest(g.saveWithoutVehicle().at(j))));
+					Vertex * oriPass = g.getVertexR(g.getRoad(g.getAdressOri(s.at(j))));
+					Vertex * destPass = g.getVertexR(g.getRoad(g.getAdressDest(s.at(j))));
 
 					g.dijkstraShortestPath(oriDriver->getNode());
 					if (g.searchUser(l,oriPass))
 					{
-						if((deltaD >= 0 && deltaD <= g.getVehicles().at(i)->getTolD())
-								&& (deltaA >= 0 && deltaA <= g.getVehicles().at(i)->getTolA())
-								&& (oriPass->getDist() < g.getVehicles().at(i)->getMaxDev()))
+						if((deltaD >= 0 && deltaD <= ve.at(i)->getTolD())
+								&& (deltaA >= 0 && deltaA <= ve.at(i)->getTolA())
+								&& (oriPass->getDist() < ve.at(i)->getMaxDev()))
 						{
-							g.getVehicles().at(i)->addPass(g.saveWithoutVehicle().at(j));
-							g.getVehicles().at(i)->setSeats();
+							ve.at(i)->addPass(s.at(j));
+							ve.at(i)->setSeats();
 							percurso.push_back(oriPass);
 							percursodest.push_back(destPass);
 						}
