@@ -522,24 +522,28 @@ vector<vector<long long> >groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRo
 
 void showRoutes(vector<vector<Vertex*> > &v)
 {
+	string a = "asdfg";
 	vector<vector<Road*> > routesByRoads;
 	for(unsigned int i = 0; i < v.size(); i++)
 	{
 		vector<Road*> routeByRoads;
+
 		for(unsigned int j = 0; j < v.at(i).size()-1; j++)
 		{
 			for(unsigned int k = 0; k < v.at(i).at(j)->getEdgesAdj().size(); k++)
 			{
-				Road *a = new Road("asdfghj", true);
 				if(v.at(i).at(j+1)->getNode() == v.at(i).at(j)->getEdgesAdj().at(k)->getDest()->getNode())
 				{
-					if((a->getName() != v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName()) && (!v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName().empty()))
+					if(!v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName().empty()) // elimina as que são nulas
 					{
-						routeByRoads.push_back(v.at(i).at(j)->getEdgesAdj().at(k)->getRoad());
+						if ((a.compare(v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName()))!=0)//elimina ruas iguais
+						{
+							routeByRoads.push_back(v.at(i).at(j)->getEdgesAdj().at(k)->getRoad());
+							a = v.at(i).at(j)->getEdgesAdj().at(k)->getRoad()->getName();
+						}
 					}
-					a = v.at(i).at(j)->getEdgesAdj().at(k)->getRoad();
-
 				}
+
 			}
 		}
 		routesByRoads.push_back(routeByRoads);
