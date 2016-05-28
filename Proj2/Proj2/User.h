@@ -28,6 +28,7 @@ public:
 	int getUserId();
 	string getAddress();
 	string getDest();
+	string getName();
 	int getArrivalH();
 	int getArrivalM();
 	int getDepartureH();

@@ -524,6 +524,8 @@ vector<vector<long long> >groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRo
 void showRoutes(vector<vector<Vertex*> > &v)
 {
 	string a = "asdfg";
+	ofstream output;
+	output.open("routes.txt");
 	vector<vector<Road*> > routesByRoads;
 	for(unsigned int i = 0; i < v.size(); i++)
 	{
@@ -555,7 +557,23 @@ void showRoutes(vector<vector<Vertex*> > &v)
 		for(unsigned int o = 0; o < routesByRoads.at(l).size();o++)
 		{
 			cout << routesByRoads.at(l).at(o)->getName()<< endl;
+			output << l << ";" << routesByRoads.at(l).at(o)->getName()<< endl;
 		}
 	}
+	output.close();
+}
+
+void writePassengers(vector<Vehicle*> v)
+{
+	ofstream output;
+	output.open("passengers.txt");
+	for(unsigned int i = 0; i < v.size(); i++)
+	{
+		for(unsigned int j = 0; j < v.at(i)->getPassengers().size(); j++)
+		{
+			output << i << ";" << v.at(i)->getPassengers().at(j)->getName() << endl;
+		}
+	}
+	output.close();
 }
 

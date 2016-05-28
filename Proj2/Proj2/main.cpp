@@ -15,6 +15,7 @@ int main()
 	g.setEdgesID();
 	drawGraph(gv,g,todasAsRotas);
 	showRoutes(todasAsRotas);
+	writePassengers(g.getVehicles());
 }
 
 

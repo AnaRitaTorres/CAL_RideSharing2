@@ -95,5 +95,13 @@ bool User::getHasVehicle()
 {
 	return hasVehicle;
 }
-
+/**
+ * Gets name.
+ *
+ *@return the name of the User
+ */
+string User::getName()
+{
+	return name;
+}
 

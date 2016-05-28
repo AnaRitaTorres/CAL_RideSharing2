@@ -30,6 +30,7 @@ vector <vector<long long> > groupCalc(Graph &g,vector<vector<Vertex*> > &todasAs
 int findLonLong(vector<long long> v, long long a);
 bool findVertex1(Graph &g,vector <Vertex *> path,Vertex* v);
 void showRoutes(vector<vector<Vertex*> > &v);
+void writePassengers(vector<Vehicle*> v);
 struct vertex_lower_than
 {
 	bool operator()(Vertex * a, Vertex * b) const
