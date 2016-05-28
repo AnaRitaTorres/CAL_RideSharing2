@@ -15,7 +15,7 @@
 1;Avenida do Lidador da Maia
 1;Rua Vila Brasil
 1;Rua das Saibreiras
-1;Travessa de Ermesinde
+1;Rua do Juncal
 1;Rua Rodrigues de Freitas
 1;Rua Manuel Ferreira Ribeiro
 1;Avenida João de Deus

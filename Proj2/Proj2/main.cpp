@@ -5,7 +5,7 @@ vector<Road*> estradas;
 GraphViewer *gv = new GraphViewer(600, 600,false);
 vector<vector<Vertex*> > todasAsRotas;
 vector<vector<Road*> > routesByRoads;
-vector <Vehicle*> namesByVehicles;
+vector <Vehicle*> namesByVehicles = g.getVehicles();
 vector<int> idRotas;
 vector<int> idVehicle;
 
@@ -40,7 +40,7 @@ void pesqExataUsers()
 	cin.clear();
 	cin.ignore();
 	getline(cin, user);
-	numVehicles = numStringMatchingUsers("passenger.txt",user, idVehicle);
+	numVehicles = numStringMatchingUsers("passengers.txt",user, idVehicle);
 	if(numVehicles == 0)
 	{
 		cout << "Não há veículos com esse passageiro";
@@ -48,9 +48,20 @@ void pesqExataUsers()
 	else
 	{
 		cout << "Há " << idVehicle.size() <<" com esse passageiro:" << endl;
-		//showRoutes(idRotas,routesByRoads); FALTA FAZER SHOWUSERS
-		showUsers(idVehicle,namesByVehicles);
+		showVehicle(idVehicle,namesByVehicles);
 	}
+}
+
+void pesqAproxRuas()
+{
+	string rua;
+	int numRuas;
+	cout << "Introduza a rua a pesquisar:" << endl;
+	cin.clear();
+	cin.ignore();
+	getline(cin, rua);
+	numRuas = numApproximateStringMatching("routes.txt",rua);
+	cout << "O resultado da pesquisa aproximada é "<< numRuas << endl;
 }
 
 unsigned short int initialMenu()
@@ -107,7 +118,7 @@ void searchMenuRuas()
 			pesqExataRuas();
 			break;
 		case 2:
-			cout<< "boas";
+			pesqAproxRuas();
 			break;
 
 		}
@@ -142,7 +153,7 @@ void searchMenuUsers()
 		switch(opcao)
 		{
 		case 1:
-			pesqExataRuas();
+			pesqExataUsers();
 			break;
 		case 2:
 			cout<< "boas";
@@ -167,7 +178,7 @@ void optionMenu()
 			searchMenuRuas();
 			break;
 		case 3:
-			cout << "utilizador" << endl;
+			searchMenuUsers();
 			break;
 		case 4:
 			break;
