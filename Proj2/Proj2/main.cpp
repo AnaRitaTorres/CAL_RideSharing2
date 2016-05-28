@@ -22,7 +22,7 @@ void pesqExataRuas()
 	numRuas = numStringMatchingRuas("routes.txt",rua, idRotas);
 	if(numRuas == 0)
 	{
-		cout << "Não há rotas disponíveis para essa rua";
+		cout << "Não há rotas disponíveis para essa rua" << endl;
 	}
 	else
 	{
@@ -43,7 +43,7 @@ void pesqExataUsers()
 	numVehicles = numStringMatchingUsers("passengers.txt",user, idVehicle);
 	if(numVehicles == 0)
 	{
-		cout << "Não há veículos com esse passageiro";
+		cout << "Não há veículos com esse passageiro" << endl;
 	}
 	else
 	{
@@ -62,6 +62,18 @@ void pesqAproxRuas()
 	getline(cin, rua);
 	numRuas = numApproximateStringMatching("routes.txt",rua);
 	cout << "O resultado da pesquisa aproximada é "<< numRuas << endl;
+}
+
+void pesqAproxUsers()
+{
+	string nome;
+	int numVehicles;
+	cout << "Introduza o passageiro a pesquisar:" << endl;
+	cin.clear();
+	cin.ignore();
+	getline(cin, nome);
+	numVehicles = numApproximateStringMatching("passengers.txt",nome);
+	cout << "O resultado da pesquisa aproximada é "<< numVehicles << endl;
 }
 
 unsigned short int initialMenu()
@@ -156,7 +168,7 @@ void searchMenuUsers()
 			pesqExataUsers();
 			break;
 		case 2:
-			cout<< "boas";
+			pesqAproxUsers();
 			break;
 
 		}
