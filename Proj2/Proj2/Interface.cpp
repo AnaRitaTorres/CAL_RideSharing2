@@ -47,6 +47,7 @@ void readCoords(Graph &g)
 		Vertex *v1 = new Vertex(node, lat_g, long_g, lat_r, long_r);
 		g.addVertex(v1);
 	}
+	f.close();
 }
 
 /**
@@ -78,6 +79,7 @@ void readRoadName(vector<Road *> &estradas)
 		Road *r = new Road(name, road, tw);
 		estradas.push_back(r);
 	}
+	f.close();
 }
 
 /**
@@ -144,6 +146,7 @@ void readRoadConnect(Graph &g1, vector<Road *> &estradas)
 		}
 
 	}
+	f.close();
 	vector<Road *> a = estradas;
 	for(unsigned int k=0; k < a.size(); k++)
 	{
@@ -186,6 +189,7 @@ void readUsers(Graph &g1)
 		User *u = new User(uid, n, adress, dest, deph, depm, arrh, arrm, hasCar);
 		g1.addUser(u);
 	}
+	f.close();
 }
 
 /**
@@ -219,6 +223,7 @@ void readVehicles(Graph &g1)
 		Vehicle *v1 = new Vehicle(uid,n_p,desv_m,td,ta);
 		g1.addVehicle(v1);
 	}
+	f.close();
 }
 
 /**

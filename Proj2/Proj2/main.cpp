@@ -55,7 +55,7 @@ void pesqExataRuas()
 		cout << "Há " << idRotas.size() <<" rotas com essa rua:" << endl;
 		showRoutes(idRotas,routesByRoads);
 	}
-	cout << "decorreram " << t << endl;
+	cout << "Decorreram " << t << " ns" << endl;
 }
 
 /*
@@ -83,7 +83,7 @@ void pesqExataUsers()
 		cout << "Há " << idVehicle.size() <<" com esse passageiro:" << endl;
 		showVehicle(idVehicle,v);
 	}
-	cout << "decorreram " << t << endl;
+	cout << "Decorreram " << t << " ns" << endl;
 }
 
 /*
@@ -100,7 +100,7 @@ void pesqAproxRuas()
 	StartCounter();
 	numRuas = numApproximateStringMatching("routes.txt",rua);
 	double t = GetCounter();
-	cout << "decorreram " << t << endl;
+	cout << "Decorreram " << t << " ns" << endl;
 }
 
 /*
@@ -116,7 +116,7 @@ void pesqAproxUsers()
 	getline(cin, nome);
 	numVehicles = numApproximateStringMatching("passengers.txt",nome);
 	double t = GetCounter();
-	cout << "decorreram " << t << endl;
+	cout << "Decorreram " << t << " ns" << endl;
 }
 
 /**
