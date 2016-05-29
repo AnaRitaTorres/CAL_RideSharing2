@@ -100,7 +100,6 @@ void pesqAproxRuas()
 	StartCounter();
 	numRuas = numApproximateStringMatching("routes.txt",rua);
 	double t = GetCounter();
-	cout << "O resultado da pesquisa aproximada é "<< numRuas << endl;
 	cout << "decorreram " << t << endl;
 }
 
@@ -117,7 +116,6 @@ void pesqAproxUsers()
 	getline(cin, nome);
 	numVehicles = numApproximateStringMatching("passengers.txt",nome);
 	double t = GetCounter();
-	cout << "O resultado da pesquisa aproximada é "<< numVehicles << endl;
 	cout << "decorreram " << t << endl;
 }
 
@@ -139,7 +137,7 @@ unsigned short int initialMenu()
 	{
 		cout << "Opção inválida!" << endl;
 		cin.clear();
-		cin.ignore();
+		cin.ignore('\n', 1000);
 		cin >> num;
 	}
 
@@ -165,7 +163,7 @@ int MenuRuas()
 	{
 		cout << "Opção inválida!" << endl;
 		cin.clear();
-		cin.ignore();
+		cin.ignore('\n', 1000);
 		cin >> num;
 	}
 
@@ -212,7 +210,7 @@ int MenuUsers()
 	{
 		cout << "Opção inválida!" << endl;
 		cin.clear();
-		cin.ignore();
+		cin.ignore('\n', 1000);
 		cin >> num;
 	}
 

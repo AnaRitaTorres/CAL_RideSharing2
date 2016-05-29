@@ -747,16 +747,16 @@ float numApproximateStringMatching(string filename,string toSearch)
 	int num=0, nwords=0;
 
 	while (!fich.eof()) {
+		num=0;
 		string idV;
 		getline(fich, idV, ';');
 		getline(fich,line1);
 		stringstream s1(line1);
-		while (!s1.eof()) {
-			s1 >> word1;
-			num += editDistance(toSearch,word1);
+		num += editDistance(toSearch, line1);
+			if(num <= 6)
+				cout << line1 << endl;
 			nwords++;
-		}
-	}
+}
 	fich.close();
 	float res=(float)num/nwords;
 	return res;
