@@ -13,9 +13,12 @@
 #include <math.h>
 #include <algorithm>
 #include <sstream>
+#include <ctime>
 #include "Graph.h"
 #include "Auxiliar.h"
 #include "GraphViewer.h"
+#include "Windows.h"
+
 
 #ifndef INTERFACE_H_
 #define INTERFACE_H_

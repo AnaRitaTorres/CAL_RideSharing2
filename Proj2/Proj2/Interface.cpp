@@ -680,6 +680,8 @@ float numApproximateStringMatching(string filename,string toSearch)
 	int num=0, nwords=0;
 
 	while (!fich.eof()) {
+		string idV;
+		getline(fich, idV, ';');
 		getline(fich,line1);
 		stringstream s1(line1);
 		while (!s1.eof()) {
