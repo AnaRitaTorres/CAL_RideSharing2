@@ -246,6 +246,7 @@ int findLonLong(vector<long long> v, long long a)
  * @param g the Graph
  * @param path the Vertex
  * @param v the vector of Vertexs
+ *
  * @return true, if the Vertex is found in the vector, otherwise false
  */
 bool findVertex1(Graph &g,vector <Vertex *> path,Vertex* v)
@@ -396,6 +397,8 @@ void drawGraph(GraphViewer * gv, Graph &g,vector <vector<Vertex*> >&todasAsRotas
  *
  * @param g the Graph
  * @param todasAsRotas the vector of Vertexs with all the paths
+ *
+ * @return vector of ids of the routes
  */
 vector<vector<long long> >groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRotas)
 												{
@@ -483,6 +486,12 @@ vector<vector<long long> >groupCalc(Graph &g,vector<vector<Vertex*> > &todasAsRo
 	return todasAsRotasIDs;
 												}
 
+/**
+ * Writes the routes to a txt file.
+ *
+ * @param v the vector of vectors of Vertexs
+ * @param v1 the vector of vectors of Roads
+ */
 void writeRoutes(vector<vector<Vertex*> > &v, vector<vector<Road*> > &v1)
 {
 	string a = "asdfg";
@@ -522,6 +531,11 @@ void writeRoutes(vector<vector<Vertex*> > &v, vector<vector<Road*> > &v1)
 	output.close();
 }
 
+/**
+ * Writes the names of the passengers of a specific value.
+ *
+ * @param vector of vehicles
+ *  */
 void writePassengers(vector<Vehicle*> v)
 {
 	ofstream output;
@@ -536,6 +550,12 @@ void writePassengers(vector<Vehicle*> v)
 	output.close();
 }
 
+/**
+ * Preprocessing of the string to examine.
+ *
+ * @param pattern the string to examine
+ * @param prefix the vector of integers
+ */
 void pre_kmp(string pattern, vector<int> & prefix)
 {
 	int m=pattern.length();
@@ -548,6 +568,13 @@ void pre_kmp(string pattern, vector<int> & prefix)
 		prefix[q]=k;
 	}
 }
+
+/**
+ * The Knuth-Morris_Pratt algorithm.
+ *
+ * @param text the string to examine
+ * @param pattern the string to find in the text
+ */
 
 int kmp(string text, string pattern)
 {
@@ -572,6 +599,15 @@ int kmp(string text, string pattern)
 	return num;
 }
 
+/**
+ * Number of occurrences of a street in the routes file and saves in a vector to which route it belongs to.
+ *
+ * @param filename the name of the file to search in
+ * @param toSearch the string to look for in the file
+ * @param v the vector where the route ID is saved
+ *
+ * @return number of occurrences of a street
+ */
 int numStringMatchingRuas(string filename,string toSearch, vector<int> &v)
 {
 	ifstream fich(filename.c_str());
@@ -597,6 +633,15 @@ int numStringMatchingRuas(string filename,string toSearch, vector<int> &v)
 	return num;
 }
 
+/**
+ * Number of occurrences of a user in the passengers file and saves in a vector to which car it belongs to.
+ *
+ * @param filename the name of the file to search in
+ * @param toSearch the string to look for in the file
+ * @param v the vector where the vehicle ID is saved
+ *
+ * @return number of occurrences of a passenger
+ */
 int numStringMatchingUsers(string filename,string toSearch, vector<int> &v)
 {
 	ifstream fich(filename.c_str());
@@ -622,8 +667,12 @@ int numStringMatchingUsers(string filename,string toSearch, vector<int> &v)
 	return num;
 }
 
-
-
+/**
+ * Prints the routes to the console.
+ *
+ * @param ids the vector where the IDs of the routes are.
+ * @param v2 the vector of vectors of roads where the routes are.
+ */
 void showRoutes(vector <int> ids, vector<vector<Road*> > & v2)
 {
 
@@ -636,6 +685,12 @@ void showRoutes(vector <int> ids, vector<vector<Road*> > & v2)
 	}
 }
 
+/**
+ * Prints the vehicles to the console.
+ *
+ * @param ids the vector where the IDs of the vehicles are.
+ * @param v2 the vector of vectors of vehicles where the passengers are.
+ */
 void showVehicle(vector <int> ids1, vector<Vehicle*> & v3)
 {
 	for(unsigned int i = 0; i < ids1.size(); i++)
@@ -645,6 +700,12 @@ void showVehicle(vector <int> ids1, vector<Vehicle*> & v3)
 	}
 }
 
+/*
+ * Minimum number of alterations to make the line where the string is searched in the string itself.
+ *
+ * @param pattern the string to search
+ * @param text the string where the pattern is searched
+ */
 int editDistance(string pattern, string text)
 {
 	int n=text.length();
@@ -670,6 +731,12 @@ int editDistance(string pattern, string text)
 	return d[n];
 }
 
+/*
+ * Minimum number of alterations to make the text where the string is searched in the string itself.
+ *
+ * @param pattern the string to search
+ * @param text the string where the pattern is searched
+ */
 float numApproximateStringMatching(string filename,string toSearch)
 {
 	ifstream fich(filename.c_str());

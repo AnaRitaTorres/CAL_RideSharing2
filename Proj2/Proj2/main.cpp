@@ -10,6 +10,9 @@ vector<int> idVehicle;
 double PCFreq = 0.0;
 __int64 CounterStart = 0;
 
+/*
+ * Starts the counter in nanoseconds.
+ */
 void StartCounter() {
     LARGE_INTEGER li;
     if(!QueryPerformanceFrequency(&li))
@@ -19,13 +22,18 @@ void StartCounter() {
     CounterStart = li.QuadPart;
 }
 
+/*
+ * Gets the time in nanoseconds.
+ */
 double GetCounter() {
     LARGE_INTEGER li;
     QueryPerformanceCounter(&li);
     return double(li.QuadPart-CounterStart)/PCFreq;
 }
 
-
+/*
+ * Exact search algorithm applied to street search.
+ */
 void pesqExataRuas()
 {
 	string rua;
@@ -50,6 +58,9 @@ void pesqExataRuas()
 	cout << "decorreram " << t << endl;
 }
 
+/*
+ * Exact search algorithm applied to user search.
+ */
 void pesqExataUsers()
 {
 	string user;
@@ -75,6 +86,9 @@ void pesqExataUsers()
 	cout << "decorreram " << t << endl;
 }
 
+/*
+ * Approximate search algorithm applied to street search.
+ */
 void pesqAproxRuas()
 {
 	string rua;
@@ -90,6 +104,9 @@ void pesqAproxRuas()
 	cout << "decorreram " << t << endl;
 }
 
+/*
+ * Approximate search algorithm applied to user search.
+ */
 void pesqAproxUsers()
 {
 	string nome;
@@ -104,6 +121,9 @@ void pesqAproxUsers()
 	cout << "decorreram " << t << endl;
 }
 
+/**
+ * Initial menu.
+ */
 unsigned short int initialMenu()
 {
 	int num;
@@ -129,6 +149,9 @@ unsigned short int initialMenu()
 	return num;
 }
 
+/**
+ * Street search menu.
+ */
 int MenuRuas()
 {
 	int num;
@@ -151,6 +174,9 @@ int MenuRuas()
 	return num;
 }
 
+/**
+ * Street search menu implementation.
+ */
 void searchMenuRuas()
 {
 	int opcao;
@@ -170,6 +196,9 @@ void searchMenuRuas()
 	}
 }
 
+/**
+ * Users search menu.
+ */
 int MenuUsers()
 {
 	int num;
@@ -192,6 +221,9 @@ int MenuUsers()
 	return num;
 }
 
+/**
+ * Users search menu implementation.
+ */
 void searchMenuUsers()
 {
 	int opcao;
@@ -211,6 +243,9 @@ void searchMenuUsers()
 	}
 }
 
+/*
+ * Initial menu implementation.
+ */
 void optionMenu()
 {
 	int opcao;
